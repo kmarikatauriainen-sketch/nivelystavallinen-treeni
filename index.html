@@ -7,8 +7,41 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <title>Nivelystävällinen treeni</title>
   <link rel="manifest" href="manifest.json" />
+  <style>
+    :root { --bg:#eef3ef; --card:#fff; --ink:#17332c; --muted:#5d726b; --line:#d7e2dc; --accent:#2f6f5e; --accent-soft:#dceae4; --warn:#8a4b16; --sali:#2f6f5e; --walk:#2b5d8a; --flex:#6b4d8a; }
+    * { box-sizing:border-box } body { margin:0; font-family:system-ui,sans-serif; background:radial-gradient(1200px 500px at 10% -10%, #d9ebe3, var(--bg)); color:var(--ink); line-height:1.45 }
+    header { position:sticky; top:0; z-index:5; background:#1a3a32; color:#f4faf7; padding:14px 16px 12px }
+    header h1 { margin:0; font-size:1.15rem } header p { margin:4px 0 0; font-size:.82rem; color:#c9ddd5 }
+    nav { display:flex; gap:6px; overflow-x:auto; padding:10px 12px 12px; background:#14302a }
+    nav button { border:0; border-radius:999px; padding:8px 12px; background:#255248; color:#e7f3ee; font-weight:600; white-space:nowrap }
+    nav button.active { background:#e8f6f0; color:#14302a }
+    main { max-width:720px; margin:0 auto; padding:14px 14px 90px }
+    .card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:14px; margin-bottom:12px }
+    .badge { display:inline-block; font-size:.72rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase; padding:3px 8px; border-radius:999px; color:#fff }
+    .b-sali { background:var(--sali) } .b-walk { background:var(--walk) } .b-flex { background:var(--flex) }
+    h2 { margin:8px 0 6px; font-size:1.2rem } .meta { color:var(--muted); font-size:.9rem }
+    .nums { display:flex; gap:8px; flex-wrap:wrap; margin:6px 0 }
+    .chip { background:var(--accent-soft); color:var(--accent); border-radius:10px; padding:6px 9px; font-weight:700; font-size:.85rem }
+    .note { font-size:.88rem; color:var(--muted) } .warn { font-size:.88rem; color:var(--warn) }
+    label.check { display:flex; align-items:center; gap:8px; margin-top:8px; font-size:.9rem }
+    input[type=checkbox] { width:18px; height:18px }
+    .progress { height:8px; background:#e3ece8; border-radius:99px; overflow:hidden; margin-top:10px }
+    .progress > span { display:block; height:100%; background:var(--accent); width:0 }
+    footer { position:fixed; left:0; right:0; bottom:0; background:#fff; border-top:1px solid var(--line); padding:10px 14px calc(10px + env(safe-area-inset-bottom)); display:flex; justify-content:space-between; align-items:center; font-size:.85rem }
+    .today-btn { background:var(--accent); color:#fff; border:0; border-radius:999px; padding:8px 14px; font-weight:700 }
+  </style>
 </head>
 <body>
-<p>Ladataan…</p>
+  <header>
+    <h1>Nivelystävällinen treeni</h1>
+    <p>Sali 2× · kävely · pilates to · yin su · merkitse tehdyt</p>
+  </header>
+  <nav id="nav"></nav>
+  <main id="app"></main>
+  <footer>
+    <div id="weekProg">Viikko 0/7</div>
+    <button class="today-btn" id="todayBtn">Tämä päivä</button>
+  </footer>
+  <script src="app.js"></script>
 </body>
 </html>

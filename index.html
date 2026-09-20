@@ -2,44 +2,90 @@
 <html lang="fi">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#1a3a32" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Nivelystävällinen treeni</title>
   <style>
-    :root { --bg:#eef3ef; --card:#fff; --ink:#17332c; --muted:#5d726b; --line:#d7e2dc; --accent:#2f6f5e; --accent-soft:#dceae4; --warn:#8a4b16; --sali:#2f6f5e; --walk:#2b5d8a; --flex:#6b4d8a; }
-    * { box-sizing:border-box } body { margin:0; font-family:system-ui,sans-serif; background:radial-gradient(1200px 500px at 10% -10%, #d9ebe3, var(--bg)); color:var(--ink); line-height:1.45 }
-    header { position:sticky; top:0; z-index:5; background:#1a3a32; color:#f4faf7; padding:14px 16px 12px }
-    header h1 { margin:0; font-size:1.15rem } header p { margin:4px 0 0; font-size:.82rem; color:#c9ddd5 }
-    nav { display:flex; gap:6px; overflow-x:auto; padding:10px 12px 12px; background:#14302a }
-    nav button { border:0; border-radius:999px; padding:8px 12px; background:#255248; color:#e7f3ee; font-weight:600; white-space:nowrap }
-    nav button.active { background:#e8f6f0; color:#14302a }
-    main { max-width:720px; margin:0 auto; padding:14px 14px 90px }
-    .card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:14px; margin-bottom:12px }
-    .badge { display:inline-block; font-size:.72rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase; padding:3px 8px; border-radius:999px; color:#fff }
-    .b-sali { background:var(--sali) } .b-walk { background:var(--walk) } .b-flex { background:var(--flex) }
-    h2 { margin:8px 0 6px; font-size:1.2rem } .meta { color:var(--muted); font-size:.9rem }
-    .nums { display:flex; gap:8px; flex-wrap:wrap; margin:6px 0 }
-    .chip { background:var(--accent-soft); color:var(--accent); border-radius:10px; padding:6px 9px; font-weight:700; font-size:.85rem }
-    .note { font-size:.88rem; color:var(--muted) } .warn { font-size:.88rem; color:var(--warn) }
-    label.check { display:flex; align-items:center; gap:8px; margin-top:8px; font-size:.9rem }
-    input[type=checkbox] { width:18px; height:18px }
-    .progress { height:8px; background:#e3ece8; border-radius:99px; overflow:hidden; margin-top:10px }
-    .progress > span { display:block; height:100%; background:var(--accent); width:0 }
-    footer { position:fixed; left:0; right:0; bottom:0; background:#fff; border-top:1px solid var(--line); padding:10px 14px calc(10px + env(safe-area-inset-bottom)); display:flex; justify-content:space-between; align-items:center; font-size:.85rem }
-    .today-btn { background:var(--accent); color:#fff; border:0; border-radius:999px; padding:8px 14px; font-weight:700 }
+    body{margin:0;font-family:system-ui,sans-serif;background:#eef3ef;color:#17332c;line-height:1.45}
+    header{background:#1a3a32;color:#f4faf7;padding:14px 16px}
+    header h1{margin:0;font-size:1.15rem}
+    header p{margin:4px 0 0;font-size:.82rem;color:#c9ddd5}
+    nav{display:flex;gap:6px;overflow-x:auto;padding:10px 12px;background:#14302a}
+    nav a{color:#e7f3ee;text-decoration:none;background:#255248;border-radius:999px;padding:8px 12px;font-weight:600;white-space:nowrap}
+    main{max-width:720px;margin:0 auto;padding:14px}
+    .card{background:#fff;border:1px solid #d7e2dc;border-radius:16px;padding:14px;margin-bottom:12px}
+    .badge{display:inline-block;font-size:.72rem;font-weight:700;text-transform:uppercase;padding:3px 8px;border-radius:999px;color:#fff;background:#2f6f5e}
+    .walk{background:#2b5d8a}.flex{background:#6b4d8a}
+    h2{margin:8px 0 6px;font-size:1.2rem}
+    .meta{color:#5d726b;font-size:.9rem}
+    .chip{display:inline-block;background:#dceae4;color:#2f6f5e;border-radius:10px;padding:6px 9px;font-weight:700;font-size:.85rem;margin:4px 6px 0 0}
+    .note{font-size:.88rem;color:#5d726b;margin-top:6px}
+    .warn{font-size:.88rem;color:#8a4b16}
+    h3{margin:0 0 4px;font-size:1rem}
   </style>
 </head>
 <body>
-  <header>
-    <h1>Nivelystävällinen treeni</h1>
-    <p>Sali 2× · kävely · pilates to · yin su · merkitse tehdyt</p>
-  </header>
-  <nav id="nav"></nav>
-  <main id="app"></main>
-  <footer>
-    <div id="weekProg">Viikko 0/7</div>
-    <button class="today-btn" id="todayBtn">Tämä päivä</button>
-  </footer>
-  <script src="https://cdn.jsdelivr.net/gh/kmarikatauriainen-sketch/nivelystavallinen-treeni@main/app.js"></script>
+<header>
+  <h1>Nivelystävällinen treeni</h1>
+  <p>Sali 2× · kävely · pilates to · yin su</p>
+</header>
+<nav>
+  <a href="#ma">Ma</a><a href="#ti">Ti</a><a href="#ke">Ke</a><a href="#to">To</a><a href="#pe">Pe</a><a href="#la">La</a><a href="#su">Su</a>
+</nav>
+<main>
+<section id="ma" class="card">
+  <span class="badge">Sali A</span>
+  <h2>Maanantai · Sali A</h2>
+  <div class="meta">45–60 min · 2–3 × 10–15 · tauko 60–90 s</div>
+  <p>Lämmittely 6–8 min: kuntopyörä tai tasakävely + lonkan avaukset.</p>
+  <p class="warn">Ei syväkyykkyä, hyppyjä eikä raskasta askelkyykkyä.</p>
+  <div class="card"><h3>1. Jalkaprässi</h3><span class="chip">Jalkaprässilaite</span><span class="chip">Sarjat 2–3</span><span class="chip">Toistot 10–15</span></div>
+  <div class="card"><h3>2. Lonkan loitonnus</h3><span class="chip">Loitonnuslaite</span><span class="chip">Sarjat 2–3</span><span class="chip">Toistot 12–15</span></div>
+  <div class="card"><h3>3. Lonkan lähennys tai glute-bridge</h3><span class="chip">Lähennyslaite tai matto</span><span class="chip">Sarjat 2–3</span><span class="chip">Toistot 12–15</span></div>
+  <div class="card"><h3>4. Rintaprässi</h3><span class="chip">Rintaprässi</span><span class="chip">Sarjat 2–3</span><span class="chip">Toistot 10–15</span></div>
+  <div class="card"><h3>5. Ylätalja eteen</h3><span class="chip">Ylätalja</span><span class="chip">Sarjat 2–3</span><span class="chip">Toistot 10–15</span></div>
+  <div class="card"><h3>6. Keskivartalo</h3><span class="chip">Vatsalaite tai matto</span><span class="chip">Sarjat 2–3</span><span class="chip">Toistot 10–15</span></div>
+  <div class="card"><h3>7. Puristus + farmari</h3><span class="chip">Pallo + käsipainot</span><span class="chip">3 × 15–20</span><span class="chip">2 × 20–30 m</span></div>
+</section>
+<section id="ti" class="card">
+  <span class="badge walk">Kävely</span>
+  <h2>Tiistai · reipas kävely</h2>
+  <div class="card"><h3>Kävely tasaisella</h3><span class="chip">Ulkona tai matolla</span><span class="chip">40–55 min</span></div>
+</section>
+<section id="ke" class="card">
+  <span class="badge walk">Kävely / lepo</span>
+  <h2>Keskiviikko</h2>
+  <div class="card"><h3>Kehittävä kävely</h3><span class="chip">30–40 min</span></div>
+  <div class="card"><h3>Vaihtoehto: lepo</h3><div class="note">Jos polvi tai lonkka ärtyy.</div></div>
+</section>
+<section id="to" class="card">
+  <span class="badge flex">Laitepilates</span>
+  <h2>Torstai · laitepilates</h2>
+  <div class="card"><h3>Laitepilates-tunti</h3><span class="chip">koko tunti</span></div>
+  <div class="card"><h3>Puristus kotona</h3><span class="chip">3 × 12–20 / käsi</span></div>
+</section>
+<section id="pe" class="card">
+  <span class="badge">Sali B</span>
+  <h2>Perjantai · Sali B</h2>
+  <p class="warn">Ei vapaapainokyykkyä eikä askelkyykkyä eteen.</p>
+  <div class="card"><h3>1. Jalkojen ojennus</h3><span class="chip">Ojennuslaite</span><span class="chip">2–3 × 12–15</span></div>
+  <div class="card"><h3>2. Istuva koukistus</h3><span class="chip">Takareisilaite</span><span class="chip">2–3 × 12–15</span></div>
+  <div class="card"><h3>3. Pohkeet</h3><span class="chip">2–3 × 12–15</span></div>
+  <div class="card"><h3>4. Alatalja / soutu</h3><span class="chip">2–3 × 10–15</span></div>
+  <div class="card"><h3>5. Olkapääprässi istuen</h3><span class="chip">2–3 × 10–12</span></div>
+  <div class="card"><h3>6. Ojentaja ja hauis</h3><span class="chip">2–3 × 10–15</span></div>
+  <div class="card"><h3>7. Puristus</h3><span class="chip">3 × 15–20</span></div>
+</section>
+<section id="la" class="card">
+  <span class="badge walk">Kävely</span>
+  <h2>Lauantai</h2>
+  <div class="card"><h3>Kävely</h3><span class="chip">40–55 min</span></div>
+  <div class="card"><h3>Valinnainen: loivat vedot</h3><span class="chip">6 × 2 min reipas + 2 min kevyt</span></div>
+</section>
+<section id="su" class="card">
+  <span class="badge flex">Yin</span>
+  <h2>Sunnuntai · yin</h2>
+  <div class="card"><h3>Yin-tunti</h3><span class="chip">koko tunti</span></div>
+</section>
+</main>
 </body>
 </html>
